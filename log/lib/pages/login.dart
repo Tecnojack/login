@@ -15,30 +15,6 @@ class _LoginState extends State<Login> {
   String emailForm = '';
   String passwordForm = '';
 
-  // void iniciarSesion() {
-  //   if (emailTrue.toLowerCase() == emailForm.toLowerCase() &&
-  //       passwordTrue == passwordForm) {
-  //     Navigator.of(context).restorablePushNamed('/home');
-  //   }
-  // }
-
-  // Future<bool> alertError({String title, String message}) {
-  //   return showDialog(
-  //       context: context,
-  //       builder: (BuildContext context) {
-  //         return AlertDialog(
-  //           title: Text('$title'),
-  //           content: Text('$message'),
-  //           actions: <Widget>[
-  //             FlatButton(
-  //               child: Text('Aceptar'),
-  //               onPressed: () => Navigator.of(context).pop(),
-  //             )
-  //           ],
-  //         );
-  //       });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
