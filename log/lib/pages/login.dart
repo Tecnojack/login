@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:log/pages/home.dart';
+import 'package:log/pages/share.dart';
 import 'package:log/pages/register.dart';
 
 class Login extends StatefulWidget {
@@ -102,7 +102,7 @@ class _LoginState extends State<Login> {
                             onPressed: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomePage()),
+                                  builder: (context) => Shared()),
                             ),
                           ),
                            RaisedButton(

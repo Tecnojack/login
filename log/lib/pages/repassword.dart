@@ -31,7 +31,7 @@ class _RepasswordState extends State<Repassword> {
                   child: Column(
                     children: <Widget>[
                       ListTile(
-                        title: Text('Registrar nuevo usuario',
+                        title: Text('Cambiar contraseña',
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold),
