@@ -1,34 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:log/pages/home.dart';
-import 'package:log/pages/register.dart';
 
-class Login extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _LoginState extends State<Login> {
+class _RegisterState extends State<Register> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  String emailTrue = 'fluter@accenture.com';
-  String passwordTrue = '12345678';
-
-  String emailForm = '';
-  String passwordForm = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login"),
+        title: Text("Registro"),
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),
         child: ListView(
           children: <Widget>[
             Image.network(
-                'https://pngimg.com/uploads/rick_morty/rick_morty_PNG24.png',
-                width: 300, height:300),
+                'https://cdn1.iconfinder.com/data/icons/basic-user-interface-7/24/add_contact_add_new_plus_create_contact_profile_account_user-512.png',
+                width: 200, height:200),
             Card(
               elevation: 5.0,
               margin: EdgeInsets.all(6.0),
@@ -38,7 +31,7 @@ class _LoginState extends State<Login> {
                   child: Column(
                     children: <Widget>[
                       ListTile(
-                        title: Text('Login',
+                        title: Text('Registrar nuevo usuario',
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold),
@@ -52,48 +45,34 @@ class _LoginState extends State<Login> {
                             borderRadius: BorderRadius.circular(5.0),
                           ),
                         ),
-                        validator: (String value) {
-                          if (value.isEmpty) {
-                            return 'No has llenado este campo';
-                          } else {
-                            if (value.contains(' ')) {
-                              return 'Digite un correo valido';
-                            } else {
-                              return null;
-                            }
-                          }
-                        },
-                        onSaved: (String value) =>
-                            emailForm = value.replaceAll(' ', ''),
                       ),
-                      SizedBox(height: 16),
+                       SizedBox(height: 16),
                       TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'Contraseña',
-                          hintText: 'Digite su contraseña',
+                          labelText: 'Email',
+                          hintText: 'Digite su email',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5.0),
                           ),
                         ),
-                        validator: (String value) {
-                          if (value.isEmpty) {
-                            return 'No has llenado este campo';
-                          } else {
-                            if (value.length < 6) {
-                              return 'Contraseña demasiado corta';
-                            } else {
-                              return null;
-                            }
-                          }
-                        },
-                        onSaved: (String value) => passwordForm = value,
+                      ),
+                      SizedBox(height: 16),
+                      TextFormField(
+                         keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          labelText: 'Numero Telefónico',
+                          hintText: 'Digite su numero',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                        ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           RaisedButton(
                             child: Text(
-                              'Iniciar sesión',
+                              'Registrarse',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
@@ -105,9 +84,10 @@ class _LoginState extends State<Login> {
                                   builder: (context) => HomePage()),
                             ),
                           ),
-                           RaisedButton(
+                          
+                          RaisedButton(
                             child: Text(
-                              'Registrarse',
+                              'Iniciar sesión',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
@@ -116,7 +96,8 @@ class _LoginState extends State<Login> {
                             onPressed: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Register()),
+                                builder: (context) => HomePage(),
+                              ),
                             ),
                           ),
                         ],
