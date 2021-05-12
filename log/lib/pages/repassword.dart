@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:log/pages/home.dart';
 
+
 class Repassword extends StatefulWidget {
   @override
   _RepasswordState createState() => _RepasswordState();
@@ -60,25 +61,10 @@ class _RepasswordState extends State<Repassword> {
                      
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
+                        children: <Widget>[                          
                           RaisedButton(
                             child: Text(
-                              'Registrarse',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            color: Colors.blue,
-                            onPressed: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomePage()),
-                            ),
-                          ),
-                          
-                          RaisedButton(
-                            child: Text(
-                              'Iniciar sesión',
+                              'Guardar',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),

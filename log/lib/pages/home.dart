@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:log/pages/login.dart';
-import 'package:log/pages/share.dart';
+
+
+import 'package:share/share.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -49,6 +51,11 @@ class _HomePageState extends State<HomePage> {
                               'Rick Sánchez es un ejemplo del típico "científico loco". Es un genio, pero es irresponsable, alcohólico, egoísta, un poco depresivo y con poca cordura. Rick por diferentes razones termina mudándose a la casa de su hija Beth y en ese momento se encuentra con su nieto Morty; un chico de 14 años de edad, tímido y no muy listo.',
                               style:
                                   TextStyle(fontSize: 20, fontFamily: "arial")),
+                          FlatButton(
+                            child: Icon(Icons.share),
+                            onPressed:(){ Share.share("MSJ");}
+                    ),
+                          
                         ]))
                       ]))
                 ],
@@ -58,8 +65,8 @@ class _HomePageState extends State<HomePage> {
         ),
         drawer: _getDrawer(context),
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.menu),
-          onPressed: _float,
+          child: Icon(Icons.share),
+          onPressed: _onPressed,
         ),
       ),
     );
@@ -158,25 +165,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _onTap() {
-    print("Hola");
-  }
-
-  void _onLongPress() {
-    print("Boton Rised Responde ");
-  }
-
   void _onPressed() {
-    print("Boton Flat Responde ");
+    Share.share('Subir archivos');
   }
 
-  void _onPressedOtLN() {
-    print("Boton Outline Responde ");
-  }
+
 }
 
-void _float() {}
-
-void _add() {
-  print("HOLA");
-}
