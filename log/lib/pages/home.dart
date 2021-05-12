@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:log/pages/login.dart';
+import 'package:log/pages/share.dart';
 
 
 import 'package:share/share.dart';
@@ -11,6 +12,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   void cerrarSesion() => Navigator.of(context).pushReplacementNamed('/login');
+  String text =
+      'Rick Sánchez es un ejemplo del típico "científico loco". Es un genio, pero es irresponsable, alcohólico, egoísta, un poco depresivo y con poca cordura. Rick por diferentes razones termina mudándose a la casa de su hija Beth y en ese momento se encuentra con su nieto Morty; un chico de 14 años de edad, tímido y no muy listo.';
+  String person =
+      'https://www.kindpng.com/picc/m/43-437689_transparent-rick-and-morty-png-rick-and-morty.png';
+  List<String> imagePaths = [];
 
   @override
   Widget build(BuildContext context) {
@@ -40,22 +46,13 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(height: 10),
                         Container(
                             child: Column(children: <Widget>[
-                          Image.network(
-                              'https://www.kindpng.com/picc/m/43-437689_transparent-rick-and-morty-png-rick-and-morty.png',
-                              width: 500,
-                              height: 500),
+                          Image.network(person),
                           Text('Rick Sánchez',
                               style:
                                   TextStyle(fontSize: 30, fontFamily: "arial")),
-                          Text(
-                              'Rick Sánchez es un ejemplo del típico "científico loco". Es un genio, pero es irresponsable, alcohólico, egoísta, un poco depresivo y con poca cordura. Rick por diferentes razones termina mudándose a la casa de su hija Beth y en ese momento se encuentra con su nieto Morty; un chico de 14 años de edad, tímido y no muy listo.',
+                          Text(text,
                               style:
                                   TextStyle(fontSize: 20, fontFamily: "arial")),
-                          FlatButton(
-                            child: Icon(Icons.share),
-                            onPressed:(){ Share.share("MSJ");}
-                    ),
-                          
                         ]))
                       ]))
                 ],
@@ -161,14 +158,23 @@ class _HomePageState extends State<HomePage> {
             MaterialPageRoute(builder: (context) => HomePage()),
           ),
         ),
+        SizedBox(height: 226),
+        RaisedButton(
+          child: Text(
+            'Volver al inicio',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+          color: Colors.green,
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Shared()),
+          ),
+        ),
       ]),
     );
   }
 
-  void _onPressed() {
-    Share.share('Subir archivos');
+  void _onPressed()  {
+    Share.share(text);
   }
-
-
 }
-

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:log/pages/home.dart';
+import 'package:log/pages/share.dart';
 
 
 class Repassword extends StatefulWidget {
@@ -73,7 +73,22 @@ class _RepasswordState extends State<Repassword> {
                             onPressed: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HomePage(),
+                                builder: (context) => Shared(),
+                              ),
+                            ),
+                          ),
+                          RaisedButton(
+                            child: Text(
+                              'Salir',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            color: Colors.green,
+                            onPressed: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Shared(),
                               ),
                             ),
                           ),

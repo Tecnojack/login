@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:log/pages/home.dart';
 import 'package:log/pages/repassword.dart';
 import 'package:log/pages/login.dart';
+import 'package:log/pages/editDetails.dart';
+import 'package:image_picker/image_picker.dart';
 
 void main() => runApp(Shared());
 
@@ -11,7 +13,7 @@ class Shared extends StatelessWidget {
     return MaterialApp(
       title: 'Manú principal',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: MyHomePage(),
     );
@@ -75,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   Widget build(BuildContext context) {
     void cerrarSesion() => Navigator.of(context).pushReplacementNamed('/login');
+    List<String> imagePaths = [];
     Size size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
@@ -92,6 +95,37 @@ class _MyHomePageState extends State<MyHomePage>
           height: size.height,
           child: Stack(
             children: <Widget>[
+              Container(
+                padding: EdgeInsets.all(16.0),
+                child: ListView(
+                  children: <Widget>[
+                    Container(
+                        child: Center(
+                            child: Column(
+                      children: [
+                        Container(
+                            width: 400,
+                            child: Column(children: [
+                              SizedBox(height: 10),
+                              Container(
+                                  child: Column(children: <Widget>[
+                                Image.network(
+                                    'https://s4.thcdn.com//design-assets/images/licensed-images/rickandmorty.png',
+                                    scale: 1.0),
+                                Text('¡Bienvenidos! ',
+                                    style: TextStyle(
+                                        fontSize: 30, fontFamily: "arial")),
+                                Text(
+                                    'Rick y Morty (en inglés: Rick and Morty) es una serie de televisión estadounidense de animación para adultos creada por Justin Roiland y Dan Harmon en 2013 para Adult Swim. La serie sigue las desventuras de un científico, Rick, y su fácilmente influenciable nieto, Morty, quienes pasan el tiempo entre la vida doméstica y los viajes espaciales, temporales e intergalácticos. Roiland es el encargado de darle voz a los dos personajes principales1​2​, y la serie también incluye las voces de Chris Parnell, Spencer Grammer y Sarah Chalke.',
+                                    style: TextStyle(
+                                        fontSize: 20, fontFamily: "arial")),
+                              ]))
+                            ]))
+                      ],
+                    )))
+                  ],
+                ),
+              ),
               Positioned(
                   right: 30,
                   bottom: 30,
@@ -175,7 +209,17 @@ class _MyHomePageState extends State<MyHomePage>
                               Icons.camera_alt,
                               color: Colors.white,
                             ),
-                            onClick: () {},
+                            onClick: () async {
+                              final imagePicker = ImagePicker();
+                              final pickedFile = await imagePicker.getImage(
+                                source: ImageSource.gallery,
+                              );
+                              if (pickedFile != null) {
+                                setState(() {
+                                  imagePaths.add(pickedFile.path);
+                                });
+                              }
+                            },
                           ),
                         ),
                       ),
@@ -282,7 +326,7 @@ class _MyHomePageState extends State<MyHomePage>
           textAlign: TextAlign.center,
         ),
         Image.network(
-            'https://www.kindpng.com/picc/m/43-437689_transparent-rick-and-morty-png-rick-and-morty.png',
+            'https://pngimage.net/wp-content/uploads/2018/06/morty-head-png-1.png',
             width: 70,
             height: 70),
         RaisedButton(

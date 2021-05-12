@@ -49,8 +49,8 @@ class _RegisterState extends State<Register> {
                        SizedBox(height: 16),
                       TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'Email',
-                          hintText: 'Digite su email',
+                          labelText: 'Contraseña',
+                          hintText: 'Digite su contraseña',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5.0),
                           ),
